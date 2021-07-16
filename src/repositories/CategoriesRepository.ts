@@ -1,4 +1,5 @@
 import { Category } from "../model/Category";
+import { categoriesRoutes } from "../routes/categories.routes";
 
 interface ICreateCategoryDTO {
   name: string,
@@ -26,6 +27,11 @@ class Categoriesrepository {
 
   list(): Category[] {
     return this.categories;
+  }
+
+  findByName(name: string) {
+    const category = this.categories.find(category => category.name === name);
+    return category;
   }
 }
 
